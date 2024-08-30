@@ -1,0 +1,112 @@
+.mb25-custom {
+  margin-bottom: 3px !important;
+}
+
+.row-custom {
+  --bs-gutter-x-custom: 13.5rem;
+  --bs-gutter-y-custom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1* var(--bs-gutter-y-custom));
+  margin-right: calc(-0.5* var(--bs-gutter-x-custom));
+  margin-left: calc(-0.5* var(--bs-gutter-x-custom));
+}
+
+.ud-btn-custom {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.ud-btn-custom:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.tab-container-custom {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-custom {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.tab-custom.active {
+  background-color: #00c194;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.tab-custom + .tab-custom {
+  margin-left: -1px; /* Prevent double border between tabs */
+  border-radius: 3px;
+}
+
+.form-style1-custom {
+  border-top: 1px solid #ddd; /* Match the border of the tab content with the tabs */
+  padding-top: 20px;
+}
+
+.udd-btn-custom.btn-thm-green-custom {
+  background-color: #00c194;
+  color: #fff;
+  border: none;
+}
+
+.udd-btn-custom.btn-thm-green-custom:hover {
+  background-color: #0088cc;
+  color: #fff;
+}
+
+.our-compare-custom {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.log-reg-form-custom {
+  padding: 50px;
+}
+
+
+/* //login page eye button passowrd */
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust as needed */
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .our-compare-custom {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .log-reg-form-custom {
+    padding: 30px;
+  }
+
+  .tab-container-custom button {
+    width: 100%;
+  }
+}

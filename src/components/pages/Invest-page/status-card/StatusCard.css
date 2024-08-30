@@ -1,0 +1,45 @@
+.summary-cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .summary-card {
+    flex: 1 0 300px; 
+    max-width: 100%; 
+    padding: 15px;
+    border-radius: 25px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    color: white;
+  }
+  
+  .details {
+    margin-top: 10px;
+  }
+  
+  .icon-CLass {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .summary-card:nth-child(1) {
+    background: linear-gradient(145deg, #396afc, #2948ff);
+  }
+  
+  .summary-card:nth-child(2) {
+    background: linear-gradient(145deg, #25ced1, #1ddbb9);
+  }
+  
+  .summary-card:nth-child(3) {
+    background: linear-gradient(145deg, #00c194, #00c194);
+  }
+  
+  .summary-card:nth-child(4) {
+    background: linear-gradient(145deg, #f5a187, #f5a187);
+  }
+  
