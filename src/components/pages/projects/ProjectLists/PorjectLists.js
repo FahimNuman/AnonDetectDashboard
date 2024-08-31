@@ -38,7 +38,7 @@ const ProjectLists = ({ data }) => {
 
   // const deleteProject = async () => {
   //   try {
-  //     await axios.delete(`https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/project/${selectedProject._id}`);
+  //     await axios.delete(`http://localhost:5000/api/v1/project/${selectedProject._id}`);
   //     toast.success("Project deleted successfully");
   //     setShowDeleteConfirmation(false);
   //     // Refresh the project list or refetch data here

@@ -48,7 +48,7 @@ const ProfitStatusUpdate = ({
       };
 
       const { data } = await axios.patch(
-        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/profit-count/${profitData?._id}`,
+        `http://localhost:5000/api/v1/profit-count/${profitData?._id}`,
         status === "Paid" ? isStatusPaidData : updatedStatus
       );
       toast.success(data?.message);

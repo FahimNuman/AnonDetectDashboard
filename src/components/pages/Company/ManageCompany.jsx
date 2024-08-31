@@ -28,7 +28,7 @@ const ManageCompany = () => {
 
     try {
       await axios.post(
-        "https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/company",
+        "http://localhost:5000/api/v1/company",
         companyData
       );
       toast.success("Company Created Successfully");

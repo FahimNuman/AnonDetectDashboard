@@ -73,7 +73,7 @@ const ReturnForInvestment = ({
 
     try {
       await axios.patch(
-        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/investment/${investment?._id}`,
+        `http://localhost:5000/api/v1/investment/${investment?._id}`,
         returnsData
       );
       toast.success("Return Request Submitted");

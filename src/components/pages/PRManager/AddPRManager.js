@@ -37,7 +37,7 @@ const AddPRManager = ({ projects }) => {
 
     try {
       await axios.post(
-        "https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/admin-users/create-admin-user",
+        "http://localhost:5000/api/v1/admin-users/create-admin-user",
         userData
       );
       toast.success("Account Created");
