@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/v1/${path}/login`,
+        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/${path}/login`,
         { email, password }
       );
 

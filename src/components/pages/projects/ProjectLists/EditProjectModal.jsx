@@ -55,7 +55,7 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/api/v1/project/${project._id}`,
+        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/project/${project._id}`,
         formData
       );
 

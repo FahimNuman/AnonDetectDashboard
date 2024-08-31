@@ -13,7 +13,7 @@ const DeleteModal = ({
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/v1/return/${returnData?._id}`
+        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/return/${returnData?._id}`
       );
       toast.success("Deleted");
       setTimeout(() => {

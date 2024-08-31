@@ -21,7 +21,7 @@ const UpdateStatus = ({ show, setShow, investment, mutate }) => {
 
     try {
       await axios.patch(
-        `http://localhost:5000/api/v1/investment/${investment?._id}`,
+        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/investment/${investment?._id}`,
         updatedStatus
       );
       toast.success("Updated");

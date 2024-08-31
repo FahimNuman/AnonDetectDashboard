@@ -10,7 +10,7 @@ const UseFetch = (path) => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/v1/${path}`
+          `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/${path}`
         );
         setData(res.data);
       } catch (err) {
@@ -25,7 +25,7 @@ const UseFetch = (path) => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/${path}`
+        `https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/${path}`
       );
       setData(res.data);
     } catch (err) {

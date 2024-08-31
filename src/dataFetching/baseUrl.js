@@ -1,1 +1,1 @@
-export const serverBaseUrl = "http://localhost:5000/api/v1";
+export const serverBaseUrl = "https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1";

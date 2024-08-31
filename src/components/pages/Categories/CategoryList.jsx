@@ -25,7 +25,7 @@ const AddCategories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/category"
+          "https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/category"
         );
         if (response.data.status === "success") {
           setCategories(response.data.data);
