@@ -105,7 +105,7 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                     className="form-control"
                   />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label htmlFor="projectType" className="form-label">Project Type</label>
                   <input
                     type="text"
@@ -114,7 +114,7 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                     onChange={(e) => setProjectType(e.target.value)}
                     className="form-control"
                   />
-                </div>
+                </div> */}
                 <div className="mb-3">
                   <label htmlFor="files" className="form-label">Project Picture</label>
                   <input
