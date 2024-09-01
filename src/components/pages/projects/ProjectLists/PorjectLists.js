@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { Table, Pagination } from "react-bootstrap";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import  { Toaster } from "react-hot-toast";
-// import EditProjectModal from "./EditProjectModal";
-// import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import EditProjectModal from "./EditProjectModal";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
 
 const ProjectLists = ({ data }) => {
   const [showEditProject, setShowEditProject] = useState(false);
@@ -36,16 +36,16 @@ const ProjectLists = ({ data }) => {
     setShowDeleteConfirmation(true);
   };
 
-  // const deleteProject = async () => {
-  //   try {
-  //     await axios.delete(`https://anon-cat.vercel.app/api/v1/project/${selectedProject._id}`);
-  //     toast.success("Project deleted successfully");
-  //     setShowDeleteConfirmation(false);
-  //     // Refresh the project list or refetch data here
-  //   } catch (error) {
-  //     toast.error("Failed to delete the project");
-  //   }
-  // };
+  const deleteProject = async () => {
+    try {
+      await axios.delete(`https://anon-cat.vercel.app/api/v1/project/${selectedProject._id}`);
+      toast.success("Project deleted successfully");
+      setShowDeleteConfirmation(false);
+      // Refresh the project list or refetch data here
+    } catch (error) {
+      toast.error("Failed to delete the project");
+    }
+  };
 
   return (
     <>
@@ -54,7 +54,7 @@ const ProjectLists = ({ data }) => {
           <thead>
             <tr>
               <th>No</th>
-              <th>Project</th>
+              <th>File</th>
               <th>Title</th>
               <th>Description</th>
               <th>Actions</th>
@@ -118,7 +118,7 @@ const ProjectLists = ({ data }) => {
           </Pagination>
         </div>
 
-        {/* {showEditProject && (
+        {showEditProject && (
           <EditProjectModal
             showModal={showEditProject}
             setShowModal={setShowEditProject}
@@ -132,7 +132,7 @@ const ProjectLists = ({ data }) => {
             setShowModal={setShowDeleteConfirmation}
             onConfirm={deleteProject}
           />
-        )} */}
+        )}
 
         <Toaster position="top-center" containerStyle={{ marginTop: "100px" }} reverseOrder={false} />
       </div>

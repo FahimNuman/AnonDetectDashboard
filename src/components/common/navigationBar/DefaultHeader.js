@@ -41,7 +41,7 @@ const DefaultHeader = () => {
                       <Image
                         width={138}
                         height={44}
-                        src="/images/header-logo2.svg"
+                        src="https://anondetect.netlify.app/hero/hero-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>
@@ -49,7 +49,7 @@ const DefaultHeader = () => {
                       <Image
                         width={138}
                         height={44}
-                        src="/images/header-logo2.svg"
+                        src="https://anondetect.netlify.app/hero/hero-logo.svg"
                         alt="Header Logo"
                       />
                     </Link>
@@ -91,14 +91,14 @@ const DefaultHeader = () => {
                       width={25}
                       height={9}
                       className="img-1"
-                      src="/images/dark-nav-icon.svg"
+                      src="https://anondetect.netlify.app/hero/hero-logo.svg"
                       alt="humberger menu"
                     />
                     <Image
                       width={25}
                       height={9}
                       className="img-2"
-                      src="/images/dark-nav-icon.svg"
+                      src="https://anondetect.netlify.app/hero/hero-logo.svg"
                       alt="humberger menu"
                     />
                   </a>

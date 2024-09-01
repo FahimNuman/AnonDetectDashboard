@@ -1,8 +1,10 @@
 "use client";
 import axios from "axios";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import "./ProjectStyles.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // Import Quill styles
+
 
 const AddProject = ({ data }) => {
   const [title, setTitle] = useState("");
@@ -32,7 +34,6 @@ const AddProject = ({ data }) => {
     for (const key in ProjectData) {
       formData.append(key, ProjectData[key]);
     }
-    console.log(...formData.entries());
 
     try {
       setLoading(true);
@@ -92,51 +93,38 @@ const AddProject = ({ data }) => {
             <label htmlFor="description" className="block text-sm font-medium text-gray-700">
               Description
             </label>
-            <textarea
-              id="description"
+            <ReactQuill
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              onChange={setDescription}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
             />
           </div>
-          <div className="col-sm-6 col-xl-6">
-            <div className="">
-              <label className="heading-color ff-heading fw600 mb10">Post Category</label>
-              <br />
-              <select
-                className="project_type"
-                value={projectType}
-                style={{
-                  width: "100%",
-                  height: "50px",
-                  borderRadius: "5px",
-                  fontSize: "1rem",
-                  border: "none",
-                }}
-                onChange={(e) => setProjectType(e.target.value)}
-              >
-                <option value="" disabled>
-                  Select Post Category Type
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Post Category</label>
+            <select
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              value={projectType}
+              onChange={(e) => setProjectType(e.target.value)}
+            >
+              <option value="" disabled>
+                Select Post Category Type
+              </option>
+              {data?.data.map((category) => (
+                <option key={category?._id} value={category?._id}>
+                  {category?.name}
                 </option>
-                {data?.data.map((category) => (
-                  <option key={category?._id} value={category?._id}>
-                    {category?.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+              ))}
+            </select>
           </div>
-          <div className="col-sm-6 col-xl-6">
-            <div className="mb20">
-              <label className="heading-color ff-heading fw600 mb10">Post Picture:</label>
-              <input
-                type="file"
-                className="form-control p-3"
-                name="image"
-                onChange={handleFileChange}
-                multiple
-              />
-            </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Post Picture</label>
+            <input
+              type="file"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              name="image"
+              onChange={handleFileChange}
+              multiple
+            />
           </div>
           <button
             type="submit"

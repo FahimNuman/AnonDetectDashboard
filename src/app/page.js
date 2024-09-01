@@ -11,7 +11,7 @@ export default function MainRoot() {
       className="our-compare pt60 pb60"
       style={{
         backgroundImage:
-          "url('https://anondetect.netlify.app/hero/hero-2.png')",
+          "url('https://Homez.netlify.app/hero/hero-2.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",

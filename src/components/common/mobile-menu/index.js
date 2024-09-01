@@ -29,7 +29,7 @@ const MobileMenu = () => {
                 <Image
                   width={138}
                   height={44}
-                  src="/images/header-logo2.svg"
+                  src="https://anondetect.netlify.app/hero/hero-logo.svg"
                   alt="logo"
                 />
               </Link>
@@ -58,7 +58,7 @@ const MobileMenu = () => {
             >
               <span className="far fa-times"></span>
             </div>
-            <h4 className="title">Welcome to Homez</h4>
+            <h4 className="title">Anon Detect</h4>
           </div>
           {/* End header */}
 

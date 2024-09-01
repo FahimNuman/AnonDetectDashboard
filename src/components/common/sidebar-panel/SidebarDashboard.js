@@ -73,7 +73,7 @@ const SidebarDashboard = () => {
             <span className="icon">
               <MdOutlineCategory style={iconStyle} />
             </span>
-            <span className="text ps-2">BlogPost Categories</span>
+            <span className="text ps-2">Blog Categories</span>
           </Link>
         </div>
 
@@ -82,7 +82,7 @@ const SidebarDashboard = () => {
             <span className="icon">
               <AiOutlinePlusSquare style={iconStyle} />
             </span>
-            <span className="text ps-2">Projects</span>
+            <span className="text ps-2">Blog</span>
             <span className="dropdown_icon">
               {openDropdown === 0 ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </span>
@@ -95,7 +95,7 @@ const SidebarDashboard = () => {
                   pathname === "/project-add" ? "active" : ""
                 }`}
               >
-                AddNew BlogPost
+                Add New Blog
               </Link>
               <Link
                 href="/project-list"
@@ -103,7 +103,7 @@ const SidebarDashboard = () => {
                   pathname === "/project-list" ? "active" : ""
                 }`}
               >
-               Blog PostList
+               Blog List
               </Link>
             </div>
           )}
