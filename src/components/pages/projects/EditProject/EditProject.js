@@ -253,7 +253,7 @@ const EditProject = ({ data }) => {
 
       // Submit the form data
       const data = await axios.post(
-        "http://localhost:5000/api/v1/project",
+        "https://anon-cat.vercel.app/api/v1/project",
         formData
       );
 

@@ -45,7 +45,7 @@ const UpdateReturnData = ({
 
     try {
       const res = await axios.patch(
-        `http://localhost:5000/api/v1/return/${selectReturnForUpdate?._id}`,
+        `https://anon-cat.vercel.app/api/v1/return/${selectReturnForUpdate?._id}`,
         returnsData
       );
       toast.success(res?.response?.data?.message);

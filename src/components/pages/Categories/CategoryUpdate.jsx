@@ -26,7 +26,7 @@ const CategoryUpdate = ({
     try {
       //   setLoading(true);
       const { data } = await axios.patch(
-        `http://localhost:5000/api/v1/category/${selectCategory?._id}`,
+        `https://anon-cat.vercel.app/api/v1/category/${selectCategory?._id}`,
         categoryData
       );
       toast.success(data?.message);

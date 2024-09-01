@@ -25,7 +25,7 @@ const UpdateReturnStatus = ({
 
     try {
       await axios.patch(
-        `http://localhost:5000/api/v1/return/${returnData?._id}`,
+        `https://anon-cat.vercel.app/api/v1/return/${returnData?._id}`,
         updatedStatus
       );
       toast.success("Updated");

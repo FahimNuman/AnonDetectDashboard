@@ -13,7 +13,7 @@ const EditProjectTitleModal = ({ showModal, setShowModal }) => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/v1/project-title`,
+        `https://anon-cat.vercel.app/api/v1/project-title`,
         newProjectTitle
       );
       toast.success("Succefully Created");

@@ -75,7 +75,7 @@ const AddProject = ({ data }) => {
     <>
       <div className="container mx-auto p-4">
         <form onSubmit={handleNewProject} className="rounded-lg bg-white p-4 shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Add Project</h2>
+          <h2 className="text-xl font-semibold mb-4">Add Blog Post</h2>
           <div className="mb-4">
             <label htmlFor="title" className="block text-sm font-medium text-gray-700">
               Title
@@ -101,7 +101,7 @@ const AddProject = ({ data }) => {
           </div>
           <div className="col-sm-6 col-xl-6">
             <div className="">
-              <label className="heading-color ff-heading fw600 mb10">Project Type</label>
+              <label className="heading-color ff-heading fw600 mb10">Post Category</label>
               <br />
               <select
                 className="project_type"
@@ -116,7 +116,7 @@ const AddProject = ({ data }) => {
                 onChange={(e) => setProjectType(e.target.value)}
               >
                 <option value="" disabled>
-                  Select Project Type
+                  Select Post Category Type
                 </option>
                 {data?.data.map((category) => (
                   <option key={category?._id} value={category?._id}>
@@ -128,7 +128,7 @@ const AddProject = ({ data }) => {
           </div>
           <div className="col-sm-6 col-xl-6">
             <div className="mb20">
-              <label className="heading-color ff-heading fw600 mb10">Project Picture:</label>
+              <label className="heading-color ff-heading fw600 mb10">Post Picture:</label>
               <input
                 type="file"
                 className="form-control p-3"

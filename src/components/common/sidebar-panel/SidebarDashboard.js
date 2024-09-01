@@ -34,7 +34,7 @@ const SidebarDashboard = () => {
     <div className="dashboard__sidebar">
       <div className="dashboard_sidebar_list">
         {/* Dashboard */}
-       <div className="sidebar_list_item">
+        <div className="sidebar_list_item">
           <Link
             href="/dashboard"
             className={`sidebar_link ${
@@ -46,7 +46,7 @@ const SidebarDashboard = () => {
             </span>
             <span className="text ps-2">Dashboard</span>
           </Link>
-        </div> 
+        </div>
 
         {/* Investment*/}
         {/* <div className="sidebar_list_item">
@@ -62,8 +62,8 @@ const SidebarDashboard = () => {
             <span className="text ps-2">Investment</span>
           </Link>
         </div>  */}
- {/* health */}
- <div className="sidebar_list_item">
+        {/* health */}
+        <div className="sidebar_list_item">
           <Link
             href="/categories-list"
             className={`sidebar_link ${
@@ -73,11 +73,10 @@ const SidebarDashboard = () => {
             <span className="icon">
               <MdOutlineCategory style={iconStyle} />
             </span>
-            <span className="text ps-2">Categories</span>
+            <span className="text ps-2">BlogPost Categories</span>
           </Link>
         </div>
 
-        
         <div className="sidebar_list_item">
           <div className="sidebar_link" onClick={() => handleToggleDropdown(0)}>
             <span className="icon">
@@ -96,7 +95,7 @@ const SidebarDashboard = () => {
                   pathname === "/project-add" ? "active" : ""
                 }`}
               >
-                Add New Project
+                AddNew BlogPost
               </Link>
               <Link
                 href="/project-list"
@@ -104,13 +103,13 @@ const SidebarDashboard = () => {
                   pathname === "/project-list" ? "active" : ""
                 }`}
               >
-                Project List
+               Blog PostList
               </Link>
             </div>
           )}
         </div>
 
-       {/* // Income */}
+        {/* // Income */}
         {/* <div className="sidebar_list_item">
           <div className="sidebar_link" onClick={() => handleToggleDropdown(1)}>
             <span className="icon">
@@ -192,8 +191,6 @@ const SidebarDashboard = () => {
             <span className="text ps-2">Healths</span>
           </Link>
         </div>
-
-        
 
         {/* Company (conditionally rendered) 
          {!(

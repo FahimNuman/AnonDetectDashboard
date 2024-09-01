@@ -18,7 +18,7 @@ const AddProjectType = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/v1/category",
+        "https://anon-cat.vercel.app/api/v1/category",
         projectType
       );
       MySwal.fire("Project Type Added");
@@ -33,7 +33,7 @@ const AddProjectType = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div className=" p30">
-          <h4 className="title fz17 mb30">Project Type</h4>
+          <h4 className="title fz17 mb30">Category Type</h4>
           <div className="form-style1">
             <div className="row">
               <div className="col-sm-6">
@@ -61,7 +61,7 @@ const AddProjectType = () => {
                     border: "none",
                   }}
                 >
-                  Add Project Type
+                  Add Category Type
                 </button>
               </div>
             </div>
