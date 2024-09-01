@@ -18,7 +18,7 @@ module.exports = {
 
       {
         protocol: "https",
-        hostname: "anon-hctxlnvkx-fahimnumans-projects.vercel.app",
+        hostname: "anon-cat.vercel.app",
         pathname: "**",
       },
       {

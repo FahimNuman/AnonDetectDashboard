@@ -19,7 +19,7 @@ const AddHealthPost = () => {
   useEffect(() => {
     const fetchHealthPosts = async () => {
       try {
-        const response = await axios.get("https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health");
+        const response = await axios.get("https://anon-cat.vercel.app/api/v1/health");
         if (Array.isArray(response.data.data)) {
           setHealthPosts(response.data.data);
         } else {
@@ -47,10 +47,10 @@ const AddHealthPost = () => {
     };
 
     try {
-      await axios.post("https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health", userData);
+      await axios.post("https://anon-cat.vercel.app/api/v1/health", userData);
       toast.success("Health Post Created");
       e.target.reset();
-      const response = await axios.get("https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health");
+      const response = await axios.get("https://anon-cat.vercel.app/api/v1/health");
       if (Array.isArray(response.data.data)) {
         setHealthPosts(response.data.data);
       } else {
@@ -72,10 +72,10 @@ const AddHealthPost = () => {
     };
 
     try {
-      await axios.put(`https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health/${selectedPost._id}`, updatedData);
+      await axios.put(`https://anon-cat.vercel.app/api/v1/health/${selectedPost._id}`, updatedData);
       toast.success("Health Post Updated");
       setShowEditModal(false);
-      const response = await axios.get("https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health");
+      const response = await axios.get("https://anon-cat.vercel.app/api/v1/health");
       if (Array.isArray(response.data.data)) {
         setHealthPosts(response.data.data);
       } else {
@@ -89,10 +89,10 @@ const AddHealthPost = () => {
   const handleDelete = async () => {
     try {
       // Display a loading state if desired
-      await axios.delete(`https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health/${deleteId}`);
+      await axios.delete(`https://anon-cat.vercel.app/api/v1/health/${deleteId}`);
       toast.success("Health Post Deleted");
       setShowDeleteModal(false);
-      const response = await axios.get("https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/health");
+      const response = await axios.get("https://anon-cat.vercel.app/api/v1/health");
       if (Array.isArray(response.data.data)) {
         setHealthPosts(response.data.data);
       } else {

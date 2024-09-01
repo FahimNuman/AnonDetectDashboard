@@ -55,7 +55,7 @@ const AddProject = ({ data }) => {
       imageUrls.forEach((url) => formData.append("projectPicture", url));
 
       const response = await axios.post(
-        "https://anon-hctxlnvkx-fahimnumans-projects.vercel.app/api/v1/project",
+        "https://anon-cat.vercel.app/api/v1/project",
         formData
       );
 

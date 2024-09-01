@@ -5,8 +5,9 @@ import AddProject from "@/components/pages/projects/AddProject/AddProject";
 
 import SidebarDashboard from "@/components/common/sidebar-panel/SidebarDashboard";
 
-import { getProjectType } from "@/dataFetching/ProjectType";
+
 import { getProjectTitle } from "@/dataFetching/projectTitle";
+import { getProjectType } from "@/dataFetching/ProjectType";
 
 export const metadata = {
   title: "Dashboard Add Property || Homez - Real Estate NextJS Template",
