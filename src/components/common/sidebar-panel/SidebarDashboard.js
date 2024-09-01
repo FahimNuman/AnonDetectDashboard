@@ -178,7 +178,7 @@ const SidebarDashboard = () => {
         </div>
 
         {/* Categories */}
-        <div className="sidebar_list_item">
+        {/* <div className="sidebar_list_item">
           <Link
             href="/health-post"
             className={`sidebar_link ${
@@ -190,7 +190,7 @@ const SidebarDashboard = () => {
             </span>
             <span className="text ps-2">Healths</span>
           </Link>
-        </div>
+        </div> */}
 
         {/* Company (conditionally rendered) 
          {!(
