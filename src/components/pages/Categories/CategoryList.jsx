@@ -73,7 +73,7 @@ const AddCategories = () => {
               value={searchQuery}
               onChange={handleSearchChange}
             />
-            <Button style={{ backgroundColor: "#00bab3", color: "white" }}>
+            <Button style={{ backgroundColor: "red", color: "white" }}>
               Search
             </Button>
           </InputGroup>
@@ -82,7 +82,7 @@ const AddCategories = () => {
           <button
             className="px-3"
             style={{
-              backgroundColor: "#00bab3",
+              backgroundColor: "red",
               border: "none",
               height: "52px",
               borderRadius: "5px",

@@ -17,6 +17,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import "./Sidebar.css";
 import useCompanyUser from "@/app/hooks/useCompanyUser";
 import useUser from "@/app/hooks/useUser";
+import { FaList, FaPlus } from "react-icons/fa";
 
 const SidebarDashboard = () => {
   const pathname = usePathname();
@@ -63,7 +64,7 @@ const SidebarDashboard = () => {
           </Link>
         </div>  */}
         {/* health */}
-        <div className="sidebar_list_item">
+        {/* <div className="sidebar_list_item">
           <Link
             href="/categories-list"
             className={`sidebar_link ${
@@ -75,7 +76,7 @@ const SidebarDashboard = () => {
             </span>
             <span className="text ps-2">Blog Categories</span>
           </Link>
-        </div>
+        </div> */}
 
         <div className="sidebar_list_item">
           <div className="sidebar_link" onClick={() => handleToggleDropdown(0)}>
@@ -89,22 +90,29 @@ const SidebarDashboard = () => {
           </div>
           {openDropdown === 0 && (
             <div className="sidebar_dropdown">
-              <Link
-                href="/project-add"
-                className={`dropdown-item ${
-                  pathname === "/project-add" ? "active" : ""
-                }`}
-              >
-                Add New Blog
-              </Link>
-              <Link
-                href="/project-list"
-                className={`dropdown-item ${
-                  pathname === "/project-list" ? "active" : ""
-                }`}
-              >
-               Blog List
-              </Link>
+           <Link
+            href="/categories-list"
+            className={`dropdown-item ${
+              pathname === "/categories-list" ? "active" : ""
+            }`}
+          >
+            <span className="icon">
+              <MdOutlineCategory style={iconStyle} />
+            </span>
+            <span className="text ps-2">Categories</span>
+          </Link>
+          <Link
+        href="/project-add"
+        className={`dropdown-item ${pathname === "/project-add" ? "active" : ""}`}
+      >
+        <FaPlus style={{ marginRight: '8px' }} /> New Article
+      </Link>
+      <Link
+        href="/project-list"
+        className={`dropdown-item ${pathname === "/project-list" ? "active" : ""}`}
+      >
+        <FaList style={{ marginRight: '8px' }} /> Articles List
+      </Link>
             </div>
           )}
         </div>

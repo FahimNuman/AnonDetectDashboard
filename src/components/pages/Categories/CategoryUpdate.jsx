@@ -76,9 +76,9 @@ const CategoryUpdate = ({
               type="submit"
               disabled={loading}
               style={{
-                backgroundColor: "#00c194",
+                backgroundColor: "red",
                 color: "white",
-                border: "none",
+               
                 borderRadius: "5px",
                 padding: "10px 15px",
                 fontSize: "1rem",

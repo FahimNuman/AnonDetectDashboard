@@ -96,6 +96,7 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
   .our-compare-custom {
     padding-top: 30px;

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import CompanySignInForm from "@/components/common/login-signup-modal/CompanySingIn";
 import SignInForm from "@/components/common/login-signup-modal/SignIn";
@@ -10,8 +11,7 @@ export default function MainRoot() {
     <section
       className="our-compare pt60 pb60"
       style={{
-        backgroundImage:
-          "url('https://Homez.netlify.app/hero/hero-2.png')",
+        backgroundImage: "url('https://anondetect.netlify.app/hero/hero-2.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
@@ -20,8 +20,21 @@ export default function MainRoot() {
     >
       <div className="container">
         <div className="row" data-aos="fade-left" data-aos-delay="300">
-          <div className="col-lg-6 offset-lg-3">
-            <div className="log-reg-form signup-modal form-style1 bgc-white p50 p30-sm default-box-shadow2 bdrs12">
+          <div
+            className="col-lg-6"
+            style={{
+              maxWidth: "500px",
+              marginLeft: "5%", // Moves the form to the left by 5% of the container's width
+              marginTop: "10%", // Moves the form down by 10% of the container's height
+            }}
+          >
+            <div
+              className="log-reg-form signup-modal form-style1 bgc-white p50 p30-sm"
+              style={{
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)", // Deep shadow effect
+                borderRadius: "12px",
+              }}
+            >
               <div className="text-center mb40">
                 <div
                   className="tab-container"
@@ -31,36 +44,53 @@ export default function MainRoot() {
                     className={`tab ${activeTab === "login" ? "active" : ""}`}
                     onClick={() => setActiveTab("login")}
                     style={{
-                      border: "1px solid #adb5bd",
-                      backgroundColor:
-                        activeTab === "login" ? "#00C194" : "transparent",
-                      color: activeTab === "login" ? "white" : "black",
+                      border: "none",
+                      backgroundColor: "transparent",
+                      color: activeTab === "login" ? "white" : "#333",
                       fontSize: "1rem",
-                      borderRadius: "0 0 0 3px",
+                      fontWeight: "600",
                       width: "250px",
                       height: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      margin: "0",
+                      padding: "0",
+                      cursor: "pointer",
+                      transition: "background-color 0.3s, color 0.3s",
                     }}
                   >
-                    Login
+                    <img
+                      src="https://anondetect.netlify.app/hero/hero-logo.svg"
+                      alt="Logo"
+                      style={{ marginRight: "8px", height: "24px" }}
+                    />
+                    <span style={{ color: "red" }}>Login</span>
                   </button>
 
-                  <button
+                  {/* Uncomment and adjust the Company tab if needed */}
+                  {/* <button
                     className={`tab ${activeTab === "company" ? "active" : ""}`}
                     onClick={() => setActiveTab("company")}
                     style={{
-                      border: "1px solid #adb5bd",
-                      backgroundColor:
-                        activeTab === "company" ? "#00C194" : "transparent",
-                      color: activeTab === "company" ? "white" : "black",
+                      border: "none",
+                      backgroundColor: "transparent",
+                      color: activeTab === "company" ? "white" : "#333",
                       fontSize: "1rem",
-                      borderRadius: "0 0 3px 0",
+                      fontWeight: "600",
                       width: "250px",
-                      marginLeft: "-1px",
                       height: "50px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginLeft: "-1px",
+                      padding: "0",
+                      cursor: "pointer",
+                      transition: "background-color 0.3s, color 0.3s",
                     }}
                   >
                     Company
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
@@ -70,6 +100,35 @@ export default function MainRoot() {
           </div>
         </div>
       </div>
+
+      {/* Responsive Styles */}
+      <style jsx>{`
+        @media (max-width: 767px) {
+          .col-lg-6 {
+            margin-left: 0;
+            margin-top: 5%;
+          }
+
+          .log-reg-form {
+            padding: 20px;
+          }
+
+          .tab {
+            font-size: 0.875rem; /* Smaller font size */
+            width: 200px;
+            height: 40px;
+          }
+
+          .tab img {
+            height: 20px; /* Smaller logo image */
+            margin-right: 6px;
+          }
+
+          .tab span {
+            font-size: 0.875rem; /* Smaller text size */
+          }
+        }
+      `}</style>
     </section>
   );
 }
