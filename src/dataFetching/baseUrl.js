@@ -1,1 +1,1 @@
-export const serverBaseUrl = "https://anon-cat.vercel.app/api/v1";
+export const serverBaseUrl = "https://anon-cat.vercel.app/api/v1/";

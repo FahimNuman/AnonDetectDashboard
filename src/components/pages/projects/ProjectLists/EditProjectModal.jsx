@@ -67,7 +67,10 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
       }
     } catch (error) {
       console.error("Update error:", error);
-      toast.error(error.response?.data?.error || "Failed to update the project. Please try again.");
+      toast.error(
+        error.response?.data?.error ||
+          "Failed to update the project. Please try again."
+      );
     }
   };
 
@@ -87,7 +90,9 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
             <div className="modal-body">
               <form onSubmit={handleUpdateProject}>
                 <div className="mb-3">
-                  <label htmlFor="title" className="form-label">Title</label>
+                  <label htmlFor="title" className="form-label">
+                    Title
+                  </label>
                   <input
                     type="text"
                     id="title"
@@ -97,7 +102,9 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="description" className="form-label">Description</label>
+                  <label htmlFor="description" className="form-label">
+                    Description
+                  </label>
                   <textarea
                     id="description"
                     value={description}
@@ -106,7 +113,9 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="projectType" className="form-label">Blog Type</label>
+                  <label htmlFor="projectType" className="form-label">
+                    Blog Type
+                  </label>
                   <input
                     type="text"
                     id="projectType"
@@ -116,7 +125,9 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="files" className="form-label">Blog Picture</label>
+                  <label htmlFor="files" className="form-label">
+                    Blog Picture
+                  </label>
                   <input
                     type="file"
                     id="files"
@@ -125,10 +136,7 @@ const EditProjectModal = ({ showModal, setShowModal, project }) => {
                     className="form-control"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                >
+                <button type="submit" className="btn btn-primary">
                   Save Changes
                 </button>
               </form>

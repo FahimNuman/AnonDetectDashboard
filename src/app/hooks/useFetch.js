@@ -24,9 +24,7 @@ const UseFetch = (path) => {
   const reFetch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
-        `https://anon-cat.vercel.app/api/v1/${path}`
-      );
+      const res = await axios.get(`https://anon-cat.vercel.app/api/v1/${path}`);
       setData(res.data);
     } catch (err) {
       setError(err);

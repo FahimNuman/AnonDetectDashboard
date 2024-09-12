@@ -26,7 +26,7 @@ const CategoryUpdate = ({
     try {
       //   setLoading(true);
       const { data } = await axios.patch(
-        `https://anon-cat.vercel.app/api/v1/category/${selectCategory?._id}`,
+        `https://anon-cat.vercel.app/api/v1//category/${selectCategory?._id}`,
         categoryData
       );
       toast.success(data?.message);
@@ -78,7 +78,7 @@ const CategoryUpdate = ({
               style={{
                 backgroundColor: "red",
                 color: "white",
-               
+
                 borderRadius: "5px",
                 padding: "10px 15px",
                 fontSize: "1rem",

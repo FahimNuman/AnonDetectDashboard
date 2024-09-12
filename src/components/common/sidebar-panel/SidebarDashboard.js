@@ -90,29 +90,33 @@ const SidebarDashboard = () => {
           </div>
           {openDropdown === 0 && (
             <div className="sidebar_dropdown">
-           <Link
-            href="/categories-list"
-            className={`dropdown-item ${
-              pathname === "/categories-list" ? "active" : ""
-            }`}
-          >
-            <span className="icon">
-              <MdOutlineCategory style={iconStyle} />
-            </span>
-            <span className="text ps-2">Categories</span>
-          </Link>
-          <Link
-        href="/project-add"
-        className={`dropdown-item ${pathname === "/project-add" ? "active" : ""}`}
-      >
-        <FaPlus style={{ marginRight: '8px' }} /> New Article
-      </Link>
-      <Link
-        href="/project-list"
-        className={`dropdown-item ${pathname === "/project-list" ? "active" : ""}`}
-      >
-        <FaList style={{ marginRight: '8px' }} /> Articles List
-      </Link>
+              <Link
+                href="/categories-list"
+                className={`dropdown-item ${
+                  pathname === "/categories-list" ? "active" : ""
+                }`}
+              >
+                <span className="icon">
+                  <MdOutlineCategory style={iconStyle} />
+                </span>
+                <span className="text ps-2">Categories</span>
+              </Link>
+              <Link
+                href="/project-add"
+                className={`dropdown-item ${
+                  pathname === "/project-add" ? "active" : ""
+                }`}
+              >
+                <FaPlus style={{ marginRight: "8px" }} /> New Article
+              </Link>
+              <Link
+                href="/project-list"
+                className={`dropdown-item ${
+                  pathname === "/project-list" ? "active" : ""
+                }`}
+              >
+                <FaList style={{ marginRight: "8px" }} /> Articles List
+              </Link>
             </div>
           )}
         </div>

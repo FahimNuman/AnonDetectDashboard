@@ -1,7 +1,7 @@
 import DashboardHeader from "@/components/common/navigationBar/DashboardHeader";
 import MobileMenu from "@/components/common/mobile-menu";
 import Footer from "@/components/common/footer/Footer";
-
+import AddPRManager from "@/components/pages/PRManager/AddPRManager";
 import SidebarDashboard from "@/components/common/sidebar-panel/SidebarDashboard";
 import { getProjects } from "@/dataFetching/Project";
 
@@ -45,7 +45,7 @@ const DashboardAddPRManager = async () => {
                 <div className="col-xl-12">
                   <div className="ps-widget bgc-white bdrs12 default-box-shadow2 pt30 mb30 overflow-hidden position-relative">
                     <div className="navtab-style1">
-                
+                      <AddPRManager projects={projects} />
                     </div>
                   </div>
                 </div>

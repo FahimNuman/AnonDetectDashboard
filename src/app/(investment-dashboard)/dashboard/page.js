@@ -6,7 +6,7 @@ import { getProjects } from "@/dataFetching/Project";
 import DashboardData from "@/components/pages/Dashboard/DashboardData";
 
 export const metadata = {
-  title: "Anon Detect - Dashboard",
+  title: "Dashboard Home - Real Estate NextJS Template",
 };
 
 const Dashboard = async () => {

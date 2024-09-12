@@ -77,12 +77,18 @@ const AddProject = ({ data }) => {
   return (
     <>
       <div className="container mx-auto p-4">
-        <form onSubmit={handleNewProject} className="rounded-lg bg-white p-4 shadow-md">
-          
+        <form
+          onSubmit={handleNewProject}
+          className="rounded-lg bg-white p-4 shadow-md"
+        >
           <div className="mb-4">
-            <label htmlFor="title" className="block text-sm font-semibold text-gray-700">
+            <label
+              htmlFor="title"
+              className="block text-sm font-semibold text-gray-700"
+            >
               Title
-            </label><br/>
+            </label>
+            <br />
             <input
               type="text"
               id="title"
@@ -92,7 +98,10 @@ const AddProject = ({ data }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-semibold text-gray-700">
+            <label
+              htmlFor="description"
+              className="block text-sm font-semibold text-gray-700"
+            >
               Description
             </label>
             {/* Dynamically loaded ReactQuill */}
@@ -103,7 +112,9 @@ const AddProject = ({ data }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-semibold text-gray-700">Post Category</label>
+            <label className="block text-sm font-semibold text-gray-700">
+              Post Category
+            </label>
             <select
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               value={projectType}
@@ -120,7 +131,10 @@ const AddProject = ({ data }) => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-semibold text-gray-700">Post Picture</label><br/>
+            <label className="block text-sm font-semibold text-gray-700">
+              Post Picture
+            </label>
+            <br />
             <input
               type="file"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -138,7 +152,11 @@ const AddProject = ({ data }) => {
           </button>
         </form>
       </div>
-      <Toaster position="top-center" containerStyle={{ marginTop: "100px" }} reverseOrder={false} />
+      <Toaster
+        position="top-center"
+        containerStyle={{ marginTop: "100px" }}
+        reverseOrder={false}
+      />
     </>
   );
 };

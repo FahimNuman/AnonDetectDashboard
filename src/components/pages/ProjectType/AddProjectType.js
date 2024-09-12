@@ -18,7 +18,7 @@ const AddProjectType = () => {
 
     try {
       await axios.post(
-        "https://anon-cat.vercel.app/api/v1/category",
+        "https://anon-cat.vercel.app/api/v1//category",
         projectType
       );
       MySwal.fire("Project Type Added");

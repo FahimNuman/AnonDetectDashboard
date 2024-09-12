@@ -1,0 +1,12 @@
+.table-row-even {
+    background-color: #f9f9f9; /* Light grey for even rows */
+  }
+  
+  .table-row-odd {
+    background-color: #ffffff; /* White for odd rows */
+  }
+  
+  .table-row-hover:hover {
+    background-color: #eaeaea; /* Slightly darker grey for hover effect */
+  }
+ 

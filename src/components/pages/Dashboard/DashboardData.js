@@ -1,9 +1,9 @@
 "use client";
 import useCompanyUser from "@/app/hooks/useCompanyUser";
-
 import "./DashboardData.css";
-
+import DashboardStatusCard from "./DashboardStatusCard";
 import useUser from "@/app/hooks/useUser";
+import ProjectChart from "./ProjectChart";
 
 const DashboardData = () => {
   const { user } = useUser();
@@ -23,15 +23,24 @@ const DashboardData = () => {
 
       <div className="dashboard-data">
         <div>
-
+          <DashboardStatusCard />
         </div>
       </div>
+
       <div className="dashboard-data">
-       
+        <div>{/* <Return /> */}</div>
       </div>
+
       <div className="dashboard-data">
-        <div>
-          
+        <div>{/* <Withdrawtable /> */}</div>
+      </div>
+
+      {/* Add the graph component here */}
+      <div className="dashboard-data">
+        <div style={{ width: "100%", height: "400px" }}>
+          {" "}
+          {/* Ensure chart container size */}
+          <ProjectChart />
         </div>
       </div>
     </>
