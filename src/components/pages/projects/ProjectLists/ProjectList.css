@@ -1,0 +1,26 @@
+/* styles.css */
+.input-group {
+    margin-right: 1rem;
+  }
+  
+  .dropdown {
+    margin-right: 1rem;
+  }
+  
+  .form-control {
+    max-width: 200px;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .pagination {
+    margin-top: 1rem;
+  }
+  
+  .table td img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  

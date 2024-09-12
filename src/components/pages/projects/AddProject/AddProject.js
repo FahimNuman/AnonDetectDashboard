@@ -2,9 +2,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import ReactQuill from "react-quill";
+import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css"; // Import Quill styles
 
+// Dynamically import ReactQuill to prevent SSR issues
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const AddProject = ({ data }) => {
   const [title, setTitle] = useState("");
@@ -76,11 +78,11 @@ const AddProject = ({ data }) => {
     <>
       <div className="container mx-auto p-4">
         <form onSubmit={handleNewProject} className="rounded-lg bg-white p-4 shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Add Blog Post</h2>
+          
           <div className="mb-4">
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="title" className="block text-sm font-semibold text-gray-700">
               Title
-            </label>
+            </label><br/>
             <input
               type="text"
               id="title"
@@ -90,9 +92,10 @@ const AddProject = ({ data }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="description" className="block text-sm font-semibold text-gray-700">
               Description
             </label>
+            {/* Dynamically loaded ReactQuill */}
             <ReactQuill
               value={description}
               onChange={setDescription}
@@ -100,7 +103,7 @@ const AddProject = ({ data }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Post Category</label>
+            <label className="block text-sm font-semibold text-gray-700">Post Category</label>
             <select
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               value={projectType}
@@ -117,7 +120,7 @@ const AddProject = ({ data }) => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Post Picture</label>
+            <label className="block text-sm font-semibold text-gray-700">Post Picture</label><br/>
             <input
               type="file"
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -128,7 +131,7 @@ const AddProject = ({ data }) => {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-semibold rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit"}

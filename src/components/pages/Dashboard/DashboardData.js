@@ -1,9 +1,8 @@
 "use client";
 import useCompanyUser from "@/app/hooks/useCompanyUser";
-import Return from "../ReturnAmount/Return";
-import Withdrawtable from "../WithdrawRequest/Withdrawtable";
+
 import "./DashboardData.css";
-import DashboardStatusCard from "./DashboardStatusCard";
+
 import useUser from "@/app/hooks/useUser";
 
 const DashboardData = () => {
@@ -28,9 +27,7 @@ const DashboardData = () => {
         </div>
       </div>
       <div className="dashboard-data">
-        <div>
-          <Return />
-        </div>
+       
       </div>
       <div className="dashboard-data">
         <div>

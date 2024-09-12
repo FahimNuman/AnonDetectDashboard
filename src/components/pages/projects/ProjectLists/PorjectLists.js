@@ -20,17 +20,23 @@ const ProjectLists = ({ data }) => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [filteredProjects, setFilteredProjects] = useState(data?.data || []);
   const [filterCategory, setFilterCategory] = useState("All");
+  const [filterTag, setFilterTag] = useState("All"); // State for tag filter
+  const [filterAuthor, setFilterAuthor] = useState(""); // State for author filter
   const [categories, setCategories] = useState([]);
+  const [tags, setTags] = useState([]); // State for storing available tags
 
   // Filter and Search Logic
   useEffect(() => {
     let projects = data?.data || [];
 
-    // Load unique categories
+    // Load unique categories and tags
     const uniqueCategories = Array.from(new Set(projects.map(project => project.projectType.name)));
     setCategories(["All", ...uniqueCategories]);
 
-    // Filter projects
+    const uniqueTags = Array.from(new Set(projects.flatMap(project => project.tags || [])));
+    setTags(["All", ...uniqueTags]);
+
+    // Filter projects by search term, category, tag, and author
     if (searchTerm) {
       projects = projects.filter((project) =>
         project.projectTitle.toLowerCase().includes(searchTerm.toLowerCase())
@@ -39,6 +45,16 @@ const ProjectLists = ({ data }) => {
 
     if (filterCategory !== "All") {
       projects = projects.filter((project) => project.projectType.name === filterCategory);
+    }
+
+    if (filterTag !== "All") {
+      projects = projects.filter((project) => project.tags?.includes(filterTag));
+    }
+
+    if (filterAuthor) {
+      projects = projects.filter((project) =>
+        project.authorName.toLowerCase().includes(filterAuthor.toLowerCase())
+      );
     }
 
     if (sortedField) {
@@ -54,7 +70,7 @@ const ProjectLists = ({ data }) => {
     }
 
     setFilteredProjects(projects);
-  }, [searchTerm, sortedField, sortOrder, data, filterCategory]);
+  }, [searchTerm, sortedField, sortOrder, data, filterCategory, filterTag, filterAuthor]);
 
   // Pagination logic
   const indexOfLastProject = currentPage * projectsPerPage;
@@ -105,33 +121,59 @@ const ProjectLists = ({ data }) => {
   return (
     <>
       <div className="container mx-auto p-1">
-        <InputGroup className="mb-2">
+        <div className="d-flex align-items-center mb-3 max-w-3xl">
+          <InputGroup className="me-2 flex-grow-1">
+            <Form.Control
+              type="text"
+              placeholder="Search by project title"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Button variant="primary">
+              <FaSearch />
+            </Button>
+          </InputGroup>
+
+          <Dropdown className="me-2">
+            <Dropdown.Toggle variant="secondary">
+              Filter by Category
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {categories.map(category => (
+                <Dropdown.Item
+                  key={category}
+                  onClick={() => setFilterCategory(category)}
+                >
+                  {category}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+
+          <Dropdown className="me-2">
+            <Dropdown.Toggle variant="secondary">
+              Filter by Tag
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {tags.map(tag => (
+                <Dropdown.Item
+                  key={tag}
+                  onClick={() => setFilterTag(tag)}
+                >
+                  {tag}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+
           <Form.Control
             type="text"
-            placeholder="Search by project title"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by author"
+            value={filterAuthor}
+            onChange={(e) => setFilterAuthor(e.target.value)}
+            className="w-25"
           />
-          <Button variant="primary">
-            <FaSearch />
-          </Button>
-        </InputGroup>
-
-        <Dropdown className="mb-3">
-          <Dropdown.Toggle variant="secondary">
-            Filter by Category
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            {categories.map(category => (
-              <Dropdown.Item
-                key={category}
-                onClick={() => setFilterCategory(category)}
-              >
-                {category}
-              </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
+        </div>
 
         <Table striped bordered hover responsive>
           <thead>
@@ -145,6 +187,8 @@ const ProjectLists = ({ data }) => {
                 Description {sortedField === "description" ? (sortOrder === "asc" ? "▲" : "▼") : ""}
               </th>
               <th>Category</th>
+              <th>Tags</th>
+              <th>Author</th>
               <th>Created Date</th>
               <th>Updated Date</th>
               <th>Actions</th>
@@ -164,6 +208,8 @@ const ProjectLists = ({ data }) => {
                 <td>{project.projectTitle}</td>
                 <td>{truncateText(project.description, 80)}</td>
                 <td>{project.projectType.name}</td>
+                <td>{project.tags?.join(", ")}</td>
+                <td>{project.authorName}</td>
                 <td>{new Date(project.createdAt).toLocaleDateString()}</td>
                 <td>{new Date(project.updatedAt).toLocaleDateString()}</td>
                 <td>
@@ -233,20 +279,6 @@ const ProjectLists = ({ data }) => {
           />
         )}
 
-{selectedProject && (
-          <Modal
-            show={showDescriptionModal}
-            onHide={() => setShowDescriptionModal(false)}
-            size="lg"
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>{selectedProject.projectTitle}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <p>{selectedProject.description}</p>
-            </Modal.Body>
-          </Modal>
-        )}
         <Toaster
           position="top-center"
           containerStyle={{ marginTop: "100px" }}

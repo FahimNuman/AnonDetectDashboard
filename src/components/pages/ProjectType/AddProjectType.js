@@ -56,7 +56,7 @@ const AddProjectType = () => {
                   type="submit"
                   className="ud-btn "
                   style={{
-                    backgroundColor: "#006666",
+                    backgroundColor: "red",
                     color: "white",
                     border: "none",
                   }}
