@@ -3,10 +3,69 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css"; // Import Quill styles
 
-// Dynamically import ReactQuill to prevent SSR issues
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// Dynamically import JoditEditor to prevent SSR issues
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
+
+// Function to remove <p> tags from HTML content
+const removePTags = (html) => {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+
+  const paragraphs = tempDiv.querySelectorAll("p");
+  paragraphs.forEach((p) => {
+    const newContent = document.createDocumentFragment();
+    while (p.firstChild) {
+      newContent.appendChild(p.firstChild);
+    }
+    p.parentNode.replaceChild(newContent, p);
+  });
+
+  return tempDiv.innerHTML;
+};
+
+// Custom image handler function
+const imageHandler = async (file, editor) => {
+  const data = new FormData();
+  data.append("file", file);
+  data.append("upload_preset", "fahimnuman");
+
+  try {
+    const uploadRes = await axios.post(
+      "https://api.cloudinary.com/v1_1/dutyno5yw/image/upload",
+      data
+    );
+    const url = uploadRes.data.secure_url;
+    editor.selection.insertHTML(`<img src="${url}" />`);
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    toast.error("Image upload failed");
+  }
+};
+
+// Configure JoditEditor options
+const config = {
+  buttons: [
+    "bold",
+    "italic",
+    "underline",
+    "strikethrough",
+    "|",
+    "ul",
+    "ol",
+    "|",
+    "image",
+    "link",
+    "clean",
+  ],
+  uploader: {
+    insertImageAsBase64URI: false,
+    // Use custom image handler
+    upload: (file, progress, success, error) => {
+      imageHandler(file, { selection: { insertHTML: success } });
+    },
+  },
+};
 
 const AddProject = ({ data }) => {
   const [title, setTitle] = useState("");
@@ -26,9 +85,12 @@ const AddProject = ({ data }) => {
       return toast.error("Please select a project type");
     }
 
+    // Remove <p> tags from the description
+    const cleanedDescription = removePTags(description);
+
     const ProjectData = {
       projectTitle: title,
-      description: description,
+      description: cleanedDescription,
       projectType: projectType,
     };
 
@@ -76,10 +138,10 @@ const AddProject = ({ data }) => {
 
   return (
     <>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 max-w-3xl">
         <form
           onSubmit={handleNewProject}
-          className="rounded-lg bg-white p-4 shadow-md"
+          className="rounded-lg bg-white p-4 shadow-md "
         >
           <div className="mb-4">
             <label
@@ -104,10 +166,11 @@ const AddProject = ({ data }) => {
             >
               Description
             </label>
-            {/* Dynamically loaded ReactQuill */}
-            <ReactQuill
+            {/* Dynamically loaded JoditEditor */}
+            <JoditEditor
               value={description}
-              onChange={setDescription}
+              config={config}
+              onChange={(content) => setDescription(content)}
               className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
             />
           </div>
